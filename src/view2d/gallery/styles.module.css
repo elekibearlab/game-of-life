@@ -1,0 +1,97 @@
+/* Pattern list. On top of the canvas, in front of the caption text */
+.gallery {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  background: var(--color-bg);
+}
+
+.galleryHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.galleryHeader h2 {
+  margin: 0;
+  font-size: var(--font-title);
+  font-weight: 800;
+}
+
+.galleryHeader p {
+  flex: 1;
+  margin: 0;
+  color: var(--color-ink-sub);
+}
+
+.galleryCategory {
+  margin: var(--space-5) 0 var(--space-2);
+  color: var(--color-ink-sub);
+  font-size: var(--font-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-3);
+}
+
+/* Phones: the list only has the upper part of the screen, so two smaller cards per row */
+@media (max-width: 720px) {
+  .gallery {
+    padding: var(--space-3);
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-2);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-panel);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s;
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+}
+
+.currentCard {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.preview {
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--space-1);
+  border-radius: var(--radius);
+}
+
+.cardName {
+  font-weight: 600;
+}
+
+.cardMeta {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: var(--font-label);
+}
+
+.cardDescription {
+  color: var(--color-ink-sub);
+  font-size: var(--font-label);
+}
